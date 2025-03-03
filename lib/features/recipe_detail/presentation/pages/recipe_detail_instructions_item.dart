@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/core/utils/colors.dart';
-import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
 
 class RecipeDetailInstructionsItem extends StatelessWidget {
   const RecipeDetailInstructionsItem({
     super.key,
-    required this.vm,
+    required this.text,
     required this.number,
-    required this.index,
     required this.color,
   });
+
   final Color color;
-  final RecipeDetailViewModel vm;
-  final int number, index;
+  final String text;
+  final int number;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +23,11 @@ class RecipeDetailInstructionsItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 5,
         children: [
           Text(
-            "${number.toString()}.",
+            "$number.",
             style: TextStyle(
               color: AppColors.beigeColor,
               fontSize: 12,
@@ -35,14 +35,19 @@ class RecipeDetailInstructionsItem extends StatelessWidget {
               fontFamily: "Poppins",
             ),
           ),
-          Text(maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            vm.recipe.instructions[index].text,
-            style: TextStyle(
-              color: AppColors.beigeColor,
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              fontFamily: "Poppins",
+          SizedBox(
+            width: 250,
+            height: 54,
+            child: Text(
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              text,
+              style: TextStyle(
+                color: AppColors.beigeColor,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                fontFamily: "Poppins",
+              ),
             ),
           ),
         ],
