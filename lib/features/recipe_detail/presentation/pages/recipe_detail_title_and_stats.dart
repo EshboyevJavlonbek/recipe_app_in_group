@@ -32,6 +32,7 @@ class RecipeDetailTitleAndStats extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
+              overflow: TextOverflow.ellipsis,
               title,
               style: TextStyle(
                 fontSize: 20,

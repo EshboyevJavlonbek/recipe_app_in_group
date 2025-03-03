@@ -11,7 +11,7 @@ import '../../features/categories/presentation/managers/category_view_model.dart
 import '../../features/category_detail/presentation/pages/category_detail_view.dart';
 
 final router = GoRouter(
-  initialLocation: '/categories',
+  initialLocation: '/recipe-detail/1',
   routes: [
     GoRoute(
       path: Routes.categories,
@@ -35,7 +35,7 @@ final router = GoRouter(
       builder: (context, state) => ChangeNotifierProvider(
         create: (context) => RecipeDetailViewModel(
           recipeRepo: context.read(),
-          recipeId: int.parse(state.pathParameters['recipeId']!), // casting
+          recipeId: int.parse(state.pathParameters['recipeId']!),
         ),
         child: RecipeDetailView(),
       ),
