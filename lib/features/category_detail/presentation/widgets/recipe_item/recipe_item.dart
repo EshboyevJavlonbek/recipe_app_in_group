@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/features/category_detail/data/models/recipe_model.dart';
 import 'package:recipe/features/category_detail/presentation/widgets/recipe_item/recipe_item_image.dart';
 import 'package:recipe/features/category_detail/presentation/widgets/recipe_item/recipe_item_info.dart';
@@ -16,8 +17,8 @@ class RecipeItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 169,
-        height: 226,
+        width: 169.w,
+        height: 226.h,
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
@@ -29,8 +30,8 @@ class RecipeItem extends StatelessWidget {
               child: RecipeIconButtonContainer(
                 image: "assets/icons/heart.svg",
                 callback: () {},
-                iconWidth: 16,
-                iconHeight: 15,
+                iconWidth: 16.w,
+                iconHeight: 15.h,
               ),
             ),
           ],

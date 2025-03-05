@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe/core/dependencies.dart' show providers;
 import 'package:recipe/core/routing/router.dart';
@@ -17,6 +18,7 @@ class RecipeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: Size(430, 932));
     return MultiProvider(
       providers: providers,
       builder: (context, child) => MaterialApp.router(

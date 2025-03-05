@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_icon_button.dart';
 
@@ -29,7 +30,7 @@ class RecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 36, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 36.w, vertical: 10.h),
       child: AppBar(
         toolbarHeight: toolbarHeight,
         leading: Align(

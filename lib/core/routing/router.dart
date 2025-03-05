@@ -9,9 +9,10 @@ import 'package:recipe/features/recipe_detail/presentation/pages/recipe_detail_v
 
 import '../../features/categories/presentation/managers/category_view_model.dart';
 import '../../features/category_detail/presentation/pages/category_detail_view.dart';
+import '../../features/home/presentation/pages/home_view.dart';
 
 final router = GoRouter(
-  initialLocation: '/recipe-detail/1',
+  initialLocation: Routes.home,
   routes: [
     GoRoute(
       path: Routes.categories,
@@ -40,5 +41,6 @@ final router = GoRouter(
         child: RecipeDetailView(),
       ),
     ),
+    GoRoute(path: Routes.home, builder: (context, state)=> HomeView())
   ],
 );

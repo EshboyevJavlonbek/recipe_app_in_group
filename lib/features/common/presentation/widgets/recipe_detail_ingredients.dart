@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
-import 'package:recipe/features/recipe_detail/presentation/pages/recipe_detail_title.dart';
+import 'package:recipe/features/common/presentation/widgets/recipe_detail_title.dart';
 
 import '../../../../core/utils/colors.dart';
 

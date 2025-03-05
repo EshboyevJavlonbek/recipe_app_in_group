@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_rating.dart';
-import 'package:recipe/features/recipe_detail/presentation/pages/recipe_reviews.dart';
+import 'package:recipe/features/common/presentation/widgets/recipe_reviews.dart';
 
 class RecipeDetailTitleAndStats extends StatelessWidget {
   const RecipeDetailTitleAndStats({
@@ -20,9 +21,9 @@ class RecipeDetailTitleAndStats extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        width: 357,
-        height: 150,
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+        width: 357.w,
+        height: 150.h,
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 16.h),
         decoration: BoxDecoration(
           color: AppColors.redPinkMain,
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
@@ -40,7 +41,7 @@ class RecipeDetailTitleAndStats extends StatelessWidget {
               ),
             ),
             Row(
-              spacing: 10,
+              spacing: 10.w,
               children: [
                 RecipeRating(
                   rating: rating,

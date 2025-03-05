@@ -3,9 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/common/common.dart';
 import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
-import 'package:recipe/features/recipe_detail/presentation/pages/recipe_detail_image.dart';
-import 'package:recipe/features/recipe_detail/presentation/pages/recipe_detail_title_and_stats.dart';
-import 'package:recipe/features/recipe_detail/presentation/pages/recipe_detail_video.dart';
+import 'package:recipe/features/common/presentation/widgets/recipe_detail_image.dart';
+import 'package:recipe/features/common/presentation/widgets/recipe_detail_title_and_stats.dart';
+import 'package:recipe/features/common/presentation/widgets/recipe_detail_video.dart';
 
 class RecipeDetailImageAndVideo extends StatelessWidget {
   const RecipeDetailImageAndVideo({

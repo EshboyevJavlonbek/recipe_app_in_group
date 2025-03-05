@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/category_detail/data/models/recipe_model.dart';
@@ -31,10 +32,12 @@ class RecipeRating extends StatelessWidget {
 
     final icon = SvgPicture.asset(
       "assets/icons/star.svg",
+      width: 10.w,
+      height: 10.h,
       colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
     );
     return Row(
-      spacing: 5,
+      spacing: 5.w,
       children: [
         swap ? icon : text,
         swap ? text : icon,
