@@ -27,7 +27,11 @@ class TrendingRecipe extends StatelessWidget {
         spacing: 10,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RecipeDetailTitle(title: "Trending Recipe"),
+          RecipeDetailTitle(
+            title: "Trending Recipe",
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+          ),
           SizedBox(
             width: 358.w,
             height: 190.h,
