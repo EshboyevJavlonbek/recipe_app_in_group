@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: HomeAppBar(
         bottom: PreferredSize(
-            preferredSize: Size(double.infinity.w, 30.h), child: Row()),
+            preferredSize: Size(double.infinity.w, 30.h), child: Row(),),
         name: "Dianne",
       ),
       body: ListView(
