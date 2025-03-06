@@ -36,7 +36,7 @@ class CategoryDetailView extends StatelessWidget {
               callback: () {},
             ),
           ],
-          bottom: RecipeAppBarBottom()
+          bottom: RecipeAppBarBottom(),
         ),
         body: CategoryDetailViewBody(),
         bottomNavigationBar: RecipeBottomNavigationBar(),

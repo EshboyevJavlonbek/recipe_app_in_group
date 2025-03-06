@@ -64,15 +64,18 @@ class TrendingRecipeContainer extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  desc,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w300,
-                    fontFamily: "League Spartan",
+                SizedBox(
+                  width: 240,
+                  child: Text(
+                    desc,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "League Spartan",
+                    ),
                   ),
                 ),
                 RecipeRating(rating: rating),

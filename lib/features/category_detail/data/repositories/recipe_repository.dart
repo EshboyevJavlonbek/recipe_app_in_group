@@ -11,7 +11,7 @@ class RecipeRepository {
   RecipeDetailModel? recipe;
 
   Future<List<RecipeModel>> fetchRecipesByCategory(int categoryId) async {
-    if (recipesByCategory.containsKey(categoryId) && recipesByCategory[categoryId] != null){
+    if (recipesByCategory.containsKey(categoryId) && recipesByCategory[categoryId] != null) {
       return recipesByCategory[categoryId]!;
     }
 
@@ -25,5 +25,15 @@ class RecipeRepository {
     final rawRecipe = await client.fetchRecipeById(recipeId);
     recipe = RecipeDetailModel.fromJson(rawRecipe);
     return recipe!;
+  }
+
+  Future<RecipeModel> fetchTrendingRecipe() async {
+    var rawRecipe = await client.fetchTrendingRecipe();
+    return RecipeModel.fromJson(rawRecipe);
+  }
+
+  Future<List<RecipeModel>> fetchYourRecipes() async {
+    var rawRecipe = await client.fetchYourRecipes();
+    return rawRecipe.map((recipe) => RecipeModel.fromJson(recipe)).toList();
   }
 }

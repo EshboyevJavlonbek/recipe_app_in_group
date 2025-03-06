@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_detail_title.dart';
+import 'package:recipe/features/home/presentation/manager/home_view_model.dart';
 import 'package:recipe/features/home/presentation/pages/your_recipe_item.dart';
 
 class YourRecipes extends StatelessWidget {
@@ -11,6 +13,7 @@ class YourRecipes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var vm = context.watch<HomeViewModel>();
     return GestureDetector(
       onTap: () {},
       child: Container(
@@ -39,17 +42,17 @@ class YourRecipes extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 YourRecipeItem(
-                  image: "assets/images/drinks.png",
-                  title: "Mojito",
-                  rating: 5,
-                  timeRequired: 15,
+                  image: vm.recipes[0].photo,
+                  title: vm.recipes[0].title,
+                  rating: vm.recipes[0].rating,
+                  timeRequired: vm.recipes[0].timeRequired,
                 ),
                 YourRecipeItem(
-                  image: "assets/images/vegan.png",
-                  title: "Vegan",
-                  rating: 4,
-                  timeRequired: 30,
-                )
+                  image: vm.recipes[1].photo,
+                  title: vm.recipes[1].title,
+                  rating: vm.recipes[1].rating,
+                  timeRequired: vm.recipes[1].timeRequired,
+                ),
               ],
             ),
           ],

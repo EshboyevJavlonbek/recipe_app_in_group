@@ -3,7 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:recipe/core/routing/routes.dart';
 import 'package:recipe/features/categories/data/models/category_model.dart';
 import 'package:recipe/features/categories/presentation/pages/categories_view.dart';
+import 'package:recipe/features/category_detail/data/repositories/recipe_repository.dart';
 import 'package:recipe/features/category_detail/presentation/manager/category_detail_view_model.dart';
+import 'package:recipe/features/home/presentation/manager/home_view_model.dart';
 import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
 import 'package:recipe/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
 
@@ -41,6 +43,12 @@ final router = GoRouter(
         child: RecipeDetailView(),
       ),
     ),
-    GoRoute(path: Routes.home, builder: (context, state)=> HomeView())
+    GoRoute(
+      path: Routes.home,
+      builder: (context, state) => ChangeNotifierProvider(
+        create: (context) => HomeViewModel(recipeRepo: RecipeRepository(client: context.read())),
+        child: HomeView(),
+      ),
+    ),
   ],
 );

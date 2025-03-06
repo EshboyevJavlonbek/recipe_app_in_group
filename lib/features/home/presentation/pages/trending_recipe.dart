@@ -46,7 +46,7 @@ class TrendingRecipe extends StatelessWidget {
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(14),
-                  child: Image.asset(
+                  child: Image.network(
                     image,
                     width: 358.w,
                     height: 143.h,
