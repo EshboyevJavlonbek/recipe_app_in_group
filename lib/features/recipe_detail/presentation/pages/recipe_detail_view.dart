@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/common/common.dart';
 import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_detail_details.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_detail_image_and_video.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_detail_ingredients.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_detail_instructions.dart';
-import 'package:recipe/features/common/presentation/widgets/recipe_detail_line.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_detail_profile.dart';
 
 class RecipeDetailView extends StatelessWidget {
@@ -49,9 +49,7 @@ class RecipeDetailView extends StatelessWidget {
                     RecipeDetailImageAndVideo(),
                     SizedBox(height: 15),
                     RecipeDetailProfile(),
-                    SizedBox(height: 15),
-                    RecipeDetailLine(),
-                    SizedBox(height: 15),
+                    Divider(color: AppColors.redPinkMain),
                     RecipeDetailDetails(),
                     SizedBox(height: 15),
                     RecipeDetailIngredients(),

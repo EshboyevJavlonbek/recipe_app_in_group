@@ -3,10 +3,20 @@ import 'package:dio/dio.dart';
 class ApiClient {
   final Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'http://192.168.132.102:8888/api/v1',
+      baseUrl: 'http://192.168.137.1:8888/api/v1',
       validateStatus: (status) => true,
     ),
   );
+
+  Future<List<dynamic>> fetchCommunity(String order) async{
+    var response = await dio.get('/recipes/community/list?Order=$order');
+    if (response.statusCode == 200) {
+      List<dynamic> data = response.data;
+      return data;
+    }else {
+      throw Exception("/recipes/community so'rovimizda xatolik!");
+    }
+  }
 
   Future<List<dynamic>> fetchYourRecipes()async{
     var response = await dio.get('/recipes/list?Limit=2');

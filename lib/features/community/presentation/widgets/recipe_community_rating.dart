@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:recipe/core/utils/colors.dart';
-import 'package:recipe/features/category_detail/data/models/recipe_model.dart';
 
-class RecipeTime extends StatelessWidget {
-  const RecipeTime({
-    super.key,
-    required this.timeRequired,
+class RecipeCommunityRating extends StatelessWidget {
+  const RecipeCommunityRating({
+    super.key, required this.rating,
   });
 
-  final int timeRequired;
+  final num rating;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +14,16 @@ class RecipeTime extends StatelessWidget {
       spacing: 5,
       children: [
         SvgPicture.asset(
-          "assets/icons/clock.svg",
+          "assets/icons/star.svg",
+          width: 10,
+          height: 10,
           colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
         ),
         Text(
-          "${timeRequired.toString()}min",
+          rating.toString(),
           style: TextStyle(
-            color: Colors.white,
             fontSize: 12,
+            fontWeight: FontWeight.w400,
           ),
         ),
       ],

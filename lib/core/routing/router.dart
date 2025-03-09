@@ -5,6 +5,9 @@ import 'package:recipe/features/categories/data/models/category_model.dart';
 import 'package:recipe/features/categories/presentation/pages/categories_view.dart';
 import 'package:recipe/features/category_detail/data/repositories/recipe_repository.dart';
 import 'package:recipe/features/category_detail/presentation/manager/category_detail_view_model.dart';
+import 'package:recipe/features/community/data/repositories/community_repository.dart';
+import 'package:recipe/features/community/presentation/manager/community_view_model.dart';
+import 'package:recipe/features/community/presentation/pages/community_view.dart';
 import 'package:recipe/features/home/presentation/manager/home_view_model.dart';
 import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
 import 'package:recipe/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
@@ -14,7 +17,7 @@ import '../../features/category_detail/presentation/pages/category_detail_view.d
 import '../../features/home/presentation/pages/home_view.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.home,
+  initialLocation: Routes.community,
   routes: [
     GoRoute(
       path: Routes.categories,
@@ -48,6 +51,17 @@ final router = GoRouter(
       builder: (context, state) => ChangeNotifierProvider(
         create: (context) => HomeViewModel(recipeRepo: RecipeRepository(client: context.read())),
         child: HomeView(),
+      ),
+    ),
+    GoRoute(
+      path: Routes.community,
+      builder: (context, state) => ChangeNotifierProvider(
+        create: (context) => CommunityViewModel(
+          repo: CommunityRepository(
+            client: context.read(),
+          ),
+        ),
+        child: CommunityView(),
       ),
     ),
   ],
