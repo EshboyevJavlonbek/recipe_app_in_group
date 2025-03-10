@@ -17,9 +17,9 @@ class CommunityViewModel extends ChangeNotifier{
   Future<void> load() async {
     orderByRating = await _repo.fetchCommunity("rating");
     notifyListeners();
-    orderByOldest = await _repo.fetchCommunity("created@Descending=false");
+    orderByOldest = await _repo.fetchCommunity("date&Descending=false");
     notifyListeners();
-    orderByNewest = await _repo.fetchCommunity("created@Descending=true");
+    orderByNewest = await _repo.fetchCommunity("date&Descending=true");
     notifyListeners();
   }
 }
