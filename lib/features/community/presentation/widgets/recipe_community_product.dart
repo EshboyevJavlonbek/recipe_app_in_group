@@ -28,7 +28,7 @@ class RecipeCommunityProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.go(Routes.recipeDetail[id]),
+      onTap: () => context.go('/recipe-detail/$id'),
       child: SizedBox(
         width: 356.w,
         height: 250.h,
