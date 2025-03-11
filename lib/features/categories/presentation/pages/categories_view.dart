@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/features/categories/presentation/managers/category_view_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recipe/features/categories/presentation/managers/categories_cubit.dart';
 import 'package:recipe/features/common/common.dart';
 
 import '../widgets/category_item.dart';
@@ -7,18 +8,13 @@ import '../widgets/category_item.dart';
 class CategoriesView extends StatelessWidget {
   const CategoriesView({
     super.key,
-    required this.vm,
   });
-
-  //
-  final CategoriesViewModel vm;
 
   @override
   Widget build(BuildContext context) {
-    return ListenableBuilder(
-      listenable: vm,
-      builder: (context, child) => RefreshIndicator(
-        onRefresh: vm.load,
+    return BlocBuilder<CategoriesCubit,CategoriesState>(
+      builder: (context, state) => RefreshIndicator(
+        onRefresh: context.read<CategoriesCubit>().load,
         child: Scaffold(
           extendBody: true,
           appBar: RecipeAppBar(
@@ -41,19 +37,19 @@ class CategoriesView extends StatelessWidget {
           ),
           body: CustomScrollView(
             slivers: [
-              if (vm.mainCategory != null)
+              if (state.mainCategory != null)
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(horizontal: 36),
                   sliver: SliverToBoxAdapter(
-                    child: CategoryItem(category: vm.mainCategory!),
+                    child: CategoryItem(category: state.mainCategory!),
                   ),
                 ),
               SliverPadding(
                 padding: const EdgeInsets.only(left: 36, right: 36, top: 16, bottom: 100),
                 sliver: SliverGrid(
                   delegate: SliverChildBuilderDelegate(
-                    childCount: vm.categories.length,
-                    (context, index) => CategoryItem(category: vm.categories[index]),
+                    childCount: state.categories.length,
+                    (context, index) => CategoryItem(category: state.categories[index]),
                   ),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,

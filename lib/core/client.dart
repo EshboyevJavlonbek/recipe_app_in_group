@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class ApiClient {
   final Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'http://192.168.132.102:8888/api/v1',
+      baseUrl: 'http://10.10.1.163:8888/api/v1',
       validateStatus: (status) => true,
     ),
   );
@@ -15,6 +15,15 @@ class ApiClient {
       return data;
     }else {
       throw Exception("/recipes/community so'rovimizda xatolik!");
+    }
+  }
+  
+  Future<List<dynamic>> fetchTopChef()async{
+    var response = await dio.get('/auth/top-chefs?Limit=4');
+    if (response.statusCode == 200 ) {
+      return response.data;
+    }else {
+      throw Exception("/auth/top-chefs?Limit=4 so'rovimizda xatolik!");
     }
   }
 

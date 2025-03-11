@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_detail_title.dart';
+import 'package:recipe/features/home/presentation/manager/home_view_model.dart';
 import 'package:recipe/features/home/presentation/pages/your_recipe_item.dart';
 
 class RecipeRecentlyAdded extends StatelessWidget {
@@ -10,6 +12,7 @@ class RecipeRecentlyAdded extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var vm = context.watch<HomeViewModel>();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 36.w),
       child: Column(
@@ -25,16 +28,16 @@ class RecipeRecentlyAdded extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               YourRecipeItem(
-                image: "assets/images/cookies.png",
-                title: "Cookies",
-                rating: 5,
-                timeRequired: 30,
+                image: vm.recipes[0].photo,
+                title: vm.recipes[0].title,
+                rating: vm.recipes[0].rating,
+                timeRequired: vm.recipes[0].timeRequired,
               ),
               YourRecipeItem(
-                image: "assets/images/cookies.png",
-                title: "Cookies",
-                rating: 5,
-                timeRequired: 30,
+                image: vm.recipes[1].photo,
+                title: vm.recipes[1].title,
+                rating: vm.recipes[1].rating,
+                timeRequired: vm.recipes[1].timeRequired,
               ),
             ],
           )

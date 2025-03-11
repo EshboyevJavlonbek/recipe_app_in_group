@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe/features/category_detail/presentation/manager/category_detail_view_model.dart';
 import 'package:recipe/features/category_detail/presentation/pages/category_detail_view_body.dart';

@@ -17,7 +17,7 @@ class TopChefItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(7),
-          child: Image.asset(
+          child: Image.network(
             image,
             width: 83.w,
             height: 74.h,

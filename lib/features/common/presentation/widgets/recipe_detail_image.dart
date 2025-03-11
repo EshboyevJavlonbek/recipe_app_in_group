@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
+
 
 class RecipeDetailImage extends StatelessWidget {
   const RecipeDetailImage({
