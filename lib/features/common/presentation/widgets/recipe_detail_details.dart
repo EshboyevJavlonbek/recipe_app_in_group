@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_detail_title.dart';
+
+import '../../../recipe_detail/manager/recipe_detail_view_model.dart';
 
 class RecipeDetailDetails extends StatelessWidget {
   const RecipeDetailDetails({

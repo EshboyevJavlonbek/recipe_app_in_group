@@ -30,6 +30,7 @@ class RecipeElevatedButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: callback,
           style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.zero,
             backgroundColor: backgroundColor,
             foregroundColor: foregroundColor,
           ),

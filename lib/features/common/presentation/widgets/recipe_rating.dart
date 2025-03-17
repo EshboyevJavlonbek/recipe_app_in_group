@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe/core/utils/colors.dart';
-import 'package:recipe/features/category_detail/data/models/recipe_model.dart';
+import 'package:recipe/data/model/recipe_model.dart';
 
 class RecipeRating extends StatelessWidget {
   const RecipeRating({

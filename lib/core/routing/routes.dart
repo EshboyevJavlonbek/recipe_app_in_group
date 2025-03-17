@@ -1,5 +1,5 @@
 class Routes{
-
+  static const String reviews = '/reviews';
   static const String community = '/community';
   static const String home = '/home';
   static const String categories = '/categories';

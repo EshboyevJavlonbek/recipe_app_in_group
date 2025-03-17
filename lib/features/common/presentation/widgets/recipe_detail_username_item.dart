@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/core/utils/colors.dart';
-import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
 
 class RecipeDetailUsernameItem extends StatelessWidget {
   const RecipeDetailUsernameItem({
@@ -8,9 +7,11 @@ class RecipeDetailUsernameItem extends StatelessWidget {
     required this.username,
     required this.firstName,
     required this.lastName,
+    this.color = AppColors.redPinkMain,
   });
 
   final String username, firstName, lastName;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class RecipeDetailUsernameItem extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           "@$username",
           style: TextStyle(
-            color: AppColors.redPinkMain,
+            color: color,
             fontSize: 12,
             fontWeight: FontWeight.w400,
             fontFamily: "Poppins",

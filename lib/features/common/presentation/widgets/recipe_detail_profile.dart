@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_eleveted_button.dart';
-import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
 import 'package:recipe/features/common/presentation/widgets/recipe_detail_username_item.dart';
+
+import '../../../recipe_detail/manager/recipe_detail_view_model.dart';
 
 class RecipeDetailProfile extends StatelessWidget {
   const RecipeDetailProfile({

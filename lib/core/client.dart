@@ -3,10 +3,28 @@ import 'package:dio/dio.dart';
 class ApiClient {
   final Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'http://10.10.1.163:8888/api/v1',
+      baseUrl: 'http://192.168.137.1:8888/api/v1',
       validateStatus: (status) => true,
     ),
   );
+
+  Future<List<dynamic>> fetchReviews(int reviewId) async {
+    var response = await dio.get('/reviews/list?recipeId=$reviewId');
+    if (response.statusCode == 200) {
+      return response.data;
+    }else{
+      throw Exception("/reviews/list?recipeId=$reviewId so'rovimizda xatolik!");
+    }
+  }
+
+  Future<Map<String, dynamic>> fetchRecipeForReviews(int recipeId)async{
+    var response = await dio.get('/recipes/reviews/detail/$recipeId');
+    if (response.statusCode == 200){
+      return Map<String, dynamic>.from(response.data);
+    }else{
+      throw Exception("/recipes/reviews/detail/$recipeId' so'rovimizda xatolik!");
+    }
+  }
 
   Future<List<dynamic>> fetchCommunity(String order) async{
     var response = await dio.get('/recipes/community/list?Order=$order');

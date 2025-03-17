@@ -2,45 +2,38 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe/core/routing/routes.dart';
-import 'package:recipe/features/categories/data/models/category_model.dart';
-import 'package:recipe/features/categories/presentation/pages/categories_view.dart';
-import 'package:recipe/features/category_detail/data/repositories/recipe_repository.dart';
-import 'package:recipe/features/category_detail/presentation/manager/category_detail_view_model.dart';
-import 'package:recipe/features/community/data/repositories/community_repository.dart';
-import 'package:recipe/features/community/presentation/manager/community_view_model.dart';
-import 'package:recipe/features/community/presentation/pages/community_view.dart';
-import 'package:recipe/features/home/data/repository/top_chef_repository.dart';
-import 'package:recipe/features/home/presentation/manager/home_view_model.dart';
-import 'package:recipe/features/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
-import 'package:recipe/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
+import 'package:recipe/data/repository/recipe_repository.dart';
+import 'package:recipe/data/model/top_chef_repository.dart';
+import 'package:recipe/data/repository/reviews_repository.dart';
 
-import '../../features/categories/presentation/managers/categories_cubit.dart';
-import '../../features/category_detail/presentation/pages/category_detail_view.dart';
-import '../../features/home/presentation/pages/home_view.dart';
+import '../../features/categories/managers/categories_cubit.dart';
+import '../../features/categories/pages/categories_view.dart';
+import '../../features/community/manager/community_view_model.dart';
+import '../../features/community/pages/community_view.dart';
+import '../../features/home/manager/home_view_model.dart';
+import '../../features/home/pages/home_view.dart';
+import '../../features/recipe_detail/manager/recipe_detail_view_model.dart';
+import '../../features/recipe_detail/pages/recipe_detail_view.dart';
+import '../../features/reviews/manager/reviews_bloc.dart';
+import '../../features/reviews/pages/reviews_view.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.home,
+  initialLocation: Routes.reviews,
   routes: [
     GoRoute(
       path: Routes.categories,
       builder: (context, state) => BlocProvider(
-        create: (context) => CategoriesCubit(
+        create: (context) => CategoriesBloc(
           catRepo: context.read(),
         ),
         child: CategoriesView(),
       ),
     ),
-    GoRoute(
-      path: Routes.categoryDetail,
-      builder: (context, state) => ChangeNotifierProvider(
-        create: (context) => CategoryDetailViewModel(
-          catRepo: context.read(),
-          recipeRepo: context.read(),
-          selected: state.extra as CategoryModel,
-        )..load(),
-        child: CategoryDetailView(),
-      ),
-    ),
+    // GoRoute(
+    //   path: Routes.categoryDetail,
+    //   builder: (context, state) => BlocProvider(create: (context)=> CategoryDetailBloc(catRepo: context. read(), recipeRepo: recipeRepo, selectedId: selectedId) ),
+    // ),
+
     GoRoute(
       path: Routes.recipeDetail,
       builder: (context, state) => ChangeNotifierProvider(
@@ -51,26 +44,43 @@ final router = GoRouter(
         child: RecipeDetailView(),
       ),
     ),
+
     GoRoute(
       path: Routes.home,
       builder: (context, state) => ChangeNotifierProvider(
         create: (context) => HomeViewModel(
-            recipeRepo: RecipeRepository(client: context.read()),
-            chefRepo: TopChefRepository(
-              client: context.read(),
-            )),
+          recipeRepo: RecipeRepository(client: context.read()),
+          chefRepo: TopChefRepository(
+            client: context.read(),
+          ),
+        ),
         child: HomeView(),
       ),
     ),
+
     GoRoute(
       path: Routes.community,
       builder: (context, state) => ChangeNotifierProvider(
         create: (context) => CommunityViewModel(
-          repo: CommunityRepository(
+          repo: RecipeRepository(
             client: context.read(),
           ),
         ),
         child: CommunityView(),
+      ),
+    ),
+
+    GoRoute(
+      path: Routes.reviews,
+      builder: (context, state) => BlocProvider(
+        create: (context) => ReviewsBloc(
+          recipeRepo: context.read(),
+          recipeId: 2,
+          reviewsRepo: ReviewsRepository(
+            client: context.read(),
+          ),
+        ),
+        child: ReviewsView(),
       ),
     ),
   ],

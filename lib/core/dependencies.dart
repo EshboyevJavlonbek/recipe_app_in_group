@@ -1,8 +1,8 @@
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
-import '../features/categories/data/repositories/category_repository.dart';
-import '../features/category_detail/data/repositories/recipe_repository.dart';
+import '../data/repository/category_repository.dart';
+import '../data/repository/recipe_repository.dart';
 import 'client.dart';
 
 final List<SingleChildWidget> providers = [
