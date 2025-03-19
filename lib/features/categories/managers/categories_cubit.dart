@@ -12,11 +12,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   CategoriesBloc({required CategoryRepository catRepo})
       : _catRepo = catRepo,
         super(
-          CategoriesState(
-            categories: [],
-            mainCategory: null,
-            status: CategoriesStatus.loading,
-          ),
+          CategoriesState(categories: [], mainCategory: null, status: CategoriesStatus.loading),
         ) {
     on<CategoriesLoading>(load);
     add(CategoriesLoading());

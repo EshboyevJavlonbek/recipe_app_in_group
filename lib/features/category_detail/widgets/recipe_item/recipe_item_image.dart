@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe/core/utils/colors.dart';
-import 'package:recipe/data/model/recipe_model.dart';
+import 'package:recipe/data/model/recipe/recipe_model.dart';
 
 class RecipeItemImage extends StatelessWidget {
   const RecipeItemImage({

@@ -1,51 +1,45 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import 'package:recipe/features/common/common.dart';
-import 'package:recipe/features/home/pages/recipe_recently_added.dart';
-import 'package:recipe/features/home/pages/top_chef.dart';
-import 'package:recipe/features/home/pages/trending_recipe.dart';
-import 'package:recipe/features/home/pages/your_recipes.dart';
 
-import '../manager/home_view_model.dart';
-import '../widgets/home_app_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recipe/features/common/common.dart';
+import 'package:recipe/features/home/widgets/recently_added_section.dart';
+import 'package:recipe/features/home/widgets/top_chefs_section.dart';
+import 'package:recipe/features/home/widgets/trending_recipe_section.dart';
+import 'package:recipe/features/home/widgets/your_recipes_section.dart';
+
+import '../manager/home_bloc.dart';
+import '../widgets/app_bar/home_view_app_bar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var vm = context.watch<HomeViewModel>();
-    return switch (vm.isLoading) {
-      true => Center(
-          child: CircularProgressIndicator(),
-        ),
-      false => Scaffold(
-          appBar: HomeAppBar(
-            name: "Dianne",
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        return switch (state.status) {
+          HomeStatus.loading => Center(child: CircularProgressIndicator()),
+          HomeStatus.error => Center(child: Text("Something went wrong...")),
+          HomeStatus.idle => Scaffold(
+            extendBody: true,
+            appBar: HomeViewAppBar(categories: state.categories),
+            body: ListView(
+              padding: EdgeInsets.only(bottom: 100.h),
+              children: [
+                TrendingRecipeSection(trendingRecipe: state.trendingRecipe!),
+                SizedBox(height: 15),
+                YourRecipesSection(title: "Your Recipes", recipes: state.yourRecipes),
+                SizedBox(height: 15),
+                TopChefsSection(topChefs: state.topChefs),
+                SizedBox(height: 15),
+                RecentlyAddedSection(recipes: state.recentlyAddedRecipes),
+              ],
+            ),
+            bottomNavigationBar: RecipeBottomNavigationBar(),
           ),
-          body: ListView(
-            padding: EdgeInsets.symmetric(vertical: 10.h),
-            children: [
-              TrendingRecipe(
-                image: vm.recipeModel!.photo,
-                title: vm.recipeModel!.title,
-                desc: vm.recipeModel!.description,
-                timeRequired: vm.recipeModel!.timeRequired,
-                rating: vm.recipeModel!.rating,
-              ),
-              SizedBox(height: 20.h),
-              YourRecipes(),
-              SizedBox(height: 20.h),
-              TopChef(),
-              SizedBox(height: 20.h),
-              RecipeRecentlyAdded(),
-              SizedBox(height: 120.h),
-            ],
-          ),
-          extendBody: true,
-          bottomNavigationBar: RecipeBottomNavigationBar(),
-        ),
-    };
+        };
+      },
+    );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/core/utils/colors.dart';
-import 'package:recipe/data/model/recipe_model.dart';
+import 'package:recipe/data/model/recipe/recipe_model.dart';
 import 'package:recipe/features/category_detail/widgets/recipe_item/recipe_item_description.dart';
 import 'package:recipe/features/category_detail/widgets/recipe_item/recipe_item_title.dart';
-import 'package:recipe/features/common/presentation/widgets/recipe_rating.dart';
-import 'package:recipe/features/common/presentation/widgets/recipe_time.dart';
+import 'package:recipe/features/common/widgets/recipe_rating.dart';
+import 'package:recipe/features/common/widgets/recipe_time.dart';
 
 class RecipeItemInfo extends StatelessWidget {
   const RecipeItemInfo({

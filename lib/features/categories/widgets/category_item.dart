@@ -36,9 +36,9 @@ class CategoryItem extends StatelessWidget {
 
     return Center(
       child: GestureDetector(
-        onTap: () => context.push(Routes.categoryDetail, extra: category),
+        onTap: () => context.push(Routes.getCategoryDetail(category.id)),
         child: Column(
-          spacing: category.isMain ? 3 : 6,
+          spacing: category.isMain ? 3.h : 6.h,
           children: [
             category.isMain ? categoryTitle : categoryImage,
             category.isMain ? categoryImage : categoryTitle,

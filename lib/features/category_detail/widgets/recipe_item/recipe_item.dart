@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recipe/data/model/recipe_model.dart';
+import 'package:recipe/data/model/recipe/recipe_model.dart';
 import 'package:recipe/features/category_detail/widgets/recipe_item/recipe_item_image.dart';
 import 'package:recipe/features/category_detail/widgets/recipe_item/recipe_item_info.dart';
 import 'package:recipe/features/common/common.dart';
