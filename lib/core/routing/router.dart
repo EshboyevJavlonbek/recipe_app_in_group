@@ -14,12 +14,15 @@ import 'package:recipe/features/reviews/manager/create_review/create_review_bloc
 import 'package:recipe/features/reviews/manager/reviews/reviews_bloc.dart';
 import 'package:recipe/features/reviews/pages/create_review_view.dart';
 import 'package:recipe/features/reviews/pages/reviews_view.dart';
+import 'package:recipe/features/top_chefs/manager/top_chefs_bloc.dart';
+import 'package:recipe/features/top_chefs/pages/top_chefs_view.dart';
 
 import '../../features/categories/managers/categories_cubit.dart';
 import '../../features/categories/pages/categories_view.dart';
+import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.home,
+  initialLocation: Routes.topChefProfile,
   routes: [
     GoRoute(
       path: Routes.home,
@@ -91,6 +94,19 @@ final router = GoRouter(
         ),
         child: ReviewsView(),
       ),
+    ),
+    GoRoute(
+      path: Routes.topChefs,
+      builder: (context, state) => BlocProvider(
+        create: (context) => TopChefsBloc(
+          chefRepo: context.read(),
+        ),
+        child: TopChefsView(),
+      ),
+    ),
+    GoRoute(
+      path: Routes.topChefProfile,
+      builder: (context, state) => TopChefProfileView(),
     ),
   ],
 );

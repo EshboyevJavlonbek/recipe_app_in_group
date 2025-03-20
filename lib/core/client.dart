@@ -5,7 +5,7 @@ import '../data/model/create_review_model.dart';
 class ApiClient {
   final Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'http://192.168.137.1:8888/api/v1',
+      baseUrl: 'http://192.168.161.102:8888/api/v1',
       validateStatus: (status) => true,
     ),
   );
@@ -26,7 +26,7 @@ class ApiClient {
       options: Options(
         headers: {
           "Authorization":
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtaWx5QGdtYWlsLmNvbSIsImp0aSI6Ijg3MTUxYTRlLTViMmYtNGViYy1hYmU4LTQzZmExYzM2YzZlNSIsInVzZXJpZCI6IjUiLCJleHAiOjE4MzY5MTc5MjcsImlzcyI6ImxvY2FsaG9zdCIsImF1ZCI6ImF1ZGllbmNlIn0.UY2a5qRKT2dUfNq6BsBT6rvxQg-medYeEoAb24fPSG0",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJld0BnbWFpbC5jb20iLCJqdGkiOiJkM2Y0YTYyYy05ODNhLTRjNGEtOTJkZi0wOGY1MzljYTdkYTUiLCJ1c2VyaWQiOiIxIiwiZXhwIjoxODM3MDc3MTgwLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.SFnCH63mCRYApkVIvAP0bZkDByw9kFAtxTnloacxSN0",
         },
       ),
       data: formData,

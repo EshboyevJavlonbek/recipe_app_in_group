@@ -13,8 +13,9 @@ class RecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.bottom,
     this.toolbarHeight = 72,
     required this.actions,
+    this.centerTitle = true,
   });
-
+  final bool centerTitle;
   final String title;
   final double toolbarHeight;
   final PreferredSizeWidget? bottom;
@@ -42,7 +43,7 @@ class RecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
             callback: () => context.pop(),
           ),
         ),
-        centerTitle: true,
+        centerTitle: centerTitle,
         title: Text(
           title,
           style: TextStyle(
