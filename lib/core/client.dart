@@ -5,7 +5,7 @@ import '../data/model/create_review_model.dart';
 class ApiClient {
   final Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'http://192.168.161.102:8888/api/v1',
+      baseUrl: 'http://192.168.137.1:8888/api/v1',
       validateStatus: (status) => true,
     ),
   );

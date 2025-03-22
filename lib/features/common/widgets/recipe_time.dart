@@ -8,10 +8,12 @@ class RecipeTime extends StatelessWidget {
     super.key,
     required this.timeRequired,
     this.color = Colors.white,
+    this.iconColor = Colors.white,
   });
 
   final int timeRequired;
   final Color color;
+  final Color iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class RecipeTime extends StatelessWidget {
       children: [
         SvgPicture.asset(
           "assets/icons/clock.svg",
-          colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
         ),
         Text(
           "${timeRequired.toString()}min",

@@ -106,7 +106,7 @@ class TopChefProfileView extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 36.w, vertical: 1.h),
         children: [
-          FavoritesItem(title: "Vegan", image: "assets/images/vegan.png")
+          FavoritesItem(title: "Vegan", image: "assets/images/vegan.png"),
         ],
       ),
       bottomNavigationBar: RecipeBottomNavigationBar(),

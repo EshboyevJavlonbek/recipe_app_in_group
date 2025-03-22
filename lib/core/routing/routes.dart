@@ -9,6 +9,7 @@ class Routes {
   static const String createReview = '/create-review/:recipeId';
   static const String topChefs = '/top-chefs';
   static const String topChefProfile ='/top-chef-profile';
+  static const String trendingRecipes ='/trending-recipes';
 
   static String getRecipeDetail(int recipeId) => '/recipe-detail/$recipeId';
 
