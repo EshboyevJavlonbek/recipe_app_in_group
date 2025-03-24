@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:recipe/core/routing/routes.dart';
 import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/common/common.dart';
 
@@ -91,13 +93,16 @@ class TrendingRecipeItem extends StatelessWidget {
                 ),
               ),
             ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(14),
-              child: CachedNetworkImage(
-                imageUrl: trendingRecipe.photo,
-                height: 143.h,
-                width: double.infinity,
-                fit: BoxFit.cover,
+            GestureDetector(
+              onTap: ()=> context.push(Routes.trendingRecipes),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: CachedNetworkImage(
+                  imageUrl: trendingRecipe.photo,
+                  height: 143.h,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Positioned(

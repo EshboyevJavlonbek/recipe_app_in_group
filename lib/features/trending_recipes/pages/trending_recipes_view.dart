@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/features/common/common.dart';
 import 'package:recipe/features/trending_recipes/manager/trending_recipes_bloc.dart';
 import 'package:recipe/features/trending_recipes/manager/trending_recipes_state.dart';
-import 'package:recipe/features/trending_recipes/pages/trending_recipes_most_viewed_section.dart';
+import 'package:recipe/features/trending_recipes/widgets/trending_recipe_item.dart';
+import 'package:recipe/features/trending_recipes/widgets/trending_recipes_most_viewed_section.dart';
 
 class TrendingRecipesView extends StatelessWidget {
   const TrendingRecipesView({super.key});
@@ -38,8 +39,18 @@ class TrendingRecipesView extends StatelessWidget {
               ),
               extendBody: true,
               body: Column(
+                spacing: 10.h,
                 children: [
                   TrendingRecipesMostViewedSection(),
+                  Expanded(
+                    child: ListView(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 36.w,
+                        vertical: 1.h,
+                      ),
+                      children: [],
+                    ),
+                  ),
                 ],
               ),
               bottomNavigationBar: RecipeBottomNavigationBar(),

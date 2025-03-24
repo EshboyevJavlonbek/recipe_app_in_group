@@ -24,7 +24,7 @@ import '../../features/categories/pages/categories_view.dart';
 import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.topChefs,
+  initialLocation: Routes.home,
   routes: [
     GoRoute(
       path: Routes.home,
