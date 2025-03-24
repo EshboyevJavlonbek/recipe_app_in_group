@@ -35,7 +35,7 @@ class TopChefsView extends StatelessWidget {
         ),
         extendBody: true,
         body: Column(
-          spacing: 10.h,
+          spacing: 11.h,
           children: [
             MostViewedChefsSection(mostViewed: state.mostViewedChefs),
             Expanded(
