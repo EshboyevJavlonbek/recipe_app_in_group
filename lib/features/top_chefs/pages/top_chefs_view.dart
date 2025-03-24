@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/features/common/common.dart';
 import 'package:recipe/features/top_chefs/manager/top_chefs_bloc.dart';
 import 'package:recipe/features/top_chefs/manager/top_chefs_state.dart';
-import 'package:recipe/features/top_chefs/pages/most_liked_chefs.dart';
-import 'package:recipe/features/top_chefs/pages/most_viewed_chefs_section.dart';
-import 'package:recipe/features/top_chefs/pages/new_chefs_section.dart';
+import 'package:recipe/features/top_chefs/widgets/most_liked_chefs_section.dart';
+import 'package:recipe/features/top_chefs/widgets/most_viewed_chefs_section.dart';
+import 'package:recipe/features/top_chefs/widgets/new_chefs_section.dart';
 
 class TopChefsView extends StatelessWidget {
   const TopChefsView({super.key});

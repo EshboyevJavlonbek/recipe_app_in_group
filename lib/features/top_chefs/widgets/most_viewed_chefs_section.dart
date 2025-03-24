@@ -5,8 +5,8 @@ import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/common/common.dart';
 import 'package:recipe/features/top_chefs/manager/top_chefs_bloc.dart';
 import 'package:recipe/features/top_chefs/manager/top_chefs_state.dart';
-import 'package:recipe/features/top_chefs/pages/new_chefs_section.dart';
-import 'package:recipe/features/top_chefs/pages/top_chefs_item.dart';
+import 'package:recipe/features/top_chefs/widgets/new_chefs_section.dart';
+import 'package:recipe/features/top_chefs/widgets/top_chefs_item.dart';
 
 import '../../../data/model/top_chef_model.dart';
 

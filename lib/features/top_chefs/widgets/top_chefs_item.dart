@@ -25,7 +25,7 @@ class TopChefsItem extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 5.h, top: 15.h),
+              padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 3.h, top: 17.h),
               width: 160.w,
               height: 76.h,
               decoration: BoxDecoration(

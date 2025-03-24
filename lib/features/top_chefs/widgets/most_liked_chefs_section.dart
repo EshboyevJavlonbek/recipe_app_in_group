@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/core/utils/colors.dart';
-import 'package:recipe/features/top_chefs/pages/top_chefs_item.dart';
+import 'package:recipe/features/top_chefs/widgets/top_chefs_item.dart';
 import '../../../data/model/top_chef_model.dart';
 
-class NewChefsSection extends StatelessWidget {
-  const NewChefsSection({
+class MostLikedChefsSection extends StatelessWidget {
+  const MostLikedChefsSection({
     super.key,
-    required this.newChefs,
+    required this.mostLiked,
   });
 
-  final List<TopChefModel> newChefs;
+  final List<TopChefModel> mostLiked;
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +30,9 @@ class NewChefsSection extends StatelessWidget {
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(
-              newChefs.length,
-              (index) => TopChefsItem(
-                chef: newChefs[index],
+              mostLiked.length,
+                  (index) => TopChefsItem(
+                chef: mostLiked[index],
               ),
             ),
           ),
