@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/routing/routes.dart';
-import '../../../data/model/top_chef_model_small.dart';
+import '../../../data/model/chef/top_chef_model_small.dart';
 
 class TopChefItemHome extends StatelessWidget {
   const TopChefItemHome({

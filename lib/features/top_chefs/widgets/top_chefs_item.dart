@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:recipe/core/routing/routes.dart';
 import 'package:recipe/core/utils/colors.dart';
-import 'package:recipe/data/model/top_chef_model.dart';
+import 'package:recipe/data/model/chef/top_chef_model.dart';
 import 'package:recipe/features/common/common.dart';
 import 'package:recipe/features/common/widgets/recipe_eleveted_button.dart';
 import 'package:recipe/features/common/widgets/recipe_rating.dart';
@@ -98,7 +100,7 @@ class TopChefsItem extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: (){},
+            onTap: () => context.push(Routes.getChefProfile(chef.id)),
             child: Container(
               width: 170.w,
               height: 153.h,

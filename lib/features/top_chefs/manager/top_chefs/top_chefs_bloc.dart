@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipe/features/top_chefs/manager/top_chefs_state.dart';
+import 'package:recipe/features/top_chefs/manager/top_chefs/top_chefs_state.dart';
 
-import '../../../data/repository/chef_repository.dart';
+import '../../../../data/repository/chef_repository.dart';
 
 part 'top_chefs_events.dart';
 

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../data/model/top_chef_model.dart';
+import '../../../../data/model/chef/top_chef_model.dart';
 
 enum TopChefsStatus { idle, loading, success, error }
 

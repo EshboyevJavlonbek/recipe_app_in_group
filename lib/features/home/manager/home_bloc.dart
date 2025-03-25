@@ -6,7 +6,7 @@ import 'package:recipe/features/home/manager/home_events.dart';
 
 import '../../../data/model/category_model.dart';
 import '../../../data/model/recipe/recipe_model.dart';
-import '../../../data/model/top_chef_model_small.dart';
+import '../../../data/model/chef/top_chef_model_small.dart';
 import '../../../data/repository/category_repository.dart';
 import '../../../data/repository/chef_repository.dart';
 import '../../../data/repository/recipe_repository.dart';

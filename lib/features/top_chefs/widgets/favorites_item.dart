@@ -48,15 +48,16 @@ class FavoritesItem extends StatelessWidget {
             width: 356,
             height: 103,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.5),
-                    offset: Offset(0, 8),
-                    blurRadius: 4,
-                    spreadRadius: 0,
-                  )
-                ]),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.5),
+                  offset: Offset(0, 8),
+                  blurRadius: 4,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.asset(

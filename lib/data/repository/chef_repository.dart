@@ -1,7 +1,8 @@
 import 'package:recipe/core/client.dart';
+import 'package:recipe/data/model/chef/top_chef_profile_model.dart';
 
-import '../model/top_chef_model.dart';
-import '../model/top_chef_model_small.dart';
+import '../model/chef/top_chef_model.dart';
+import '../model/chef/top_chef_model_small.dart';
 
 class ChefRepository {
   ChefRepository({required this.client});
@@ -12,6 +13,8 @@ class ChefRepository {
   List<TopChefModel> mostViewedChefs = [];
   List<TopChefModel> mostLikedChefs = [];
   List<TopChefModel> newChefs = [];
+
+  TopChefProfileModel? chefProfile;
 
   Future<List<TopChefModelSmall>> fetchTopChefsForHome({int? limit}) async {
     var rawChef = await client.fetchTopChefsForHome(limit: limit);
@@ -42,7 +45,15 @@ class ChefRepository {
       '/top-chefs/list',
       queryParams: {"Order": "Date", "Limit": 2},
     );
-    newChefs = rawNewChefs.map((chef)=> TopChefModel.fromJson(chef)).toList();
+    newChefs = rawNewChefs.map((chef) => TopChefModel.fromJson(chef)).toList();
     return newChefs;
+  }
+
+  Future<TopChefProfileModel> fetchChefProfile(int chefId) async {
+    var rawChefProfile = await client.genericGetRequest<Map<String, dynamic>>(
+      '/auth/details/$chefId',
+    );
+    chefProfile = TopChefProfileModel.fromJson(rawChefProfile);
+    return chefProfile!;
   }
 }

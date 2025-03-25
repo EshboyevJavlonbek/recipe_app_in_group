@@ -8,8 +8,9 @@ class Routes {
   static const String reviews = '/reviews/:recipeId';
   static const String createReview = '/create-review/:recipeId';
   static const String topChefs = '/top-chefs';
-  static const String topChefProfile ='/top-chef-profile';
+  static const String topChefProfile ='/top-chef-profile/:chefId';
   static const String trendingRecipes ='/trending-recipes';
+  static const String notifications = '/notification';
 
   static String getRecipeDetail(int recipeId) => '/recipe-detail/$recipeId';
 
@@ -18,4 +19,6 @@ class Routes {
   static String getReviews(int recipeId) => '/reviews/$recipeId';
 
   static String getCreateReview(int recipeId) => '/create-review/$recipeId';
+
+  static String getChefProfile(int chefId) => '/top-chef-profile/$chefId';
 }

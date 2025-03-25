@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/features/home/widgets/top_chef_item_home.dart';
 
-import '../../../data/model/top_chef_model_small.dart';
+import '../../../data/model/chef/top_chef_model_small.dart';
 
 class TopChefsSection extends StatelessWidget {
   const TopChefsSection({

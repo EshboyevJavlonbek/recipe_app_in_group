@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/top_chefs/widgets/top_chefs_item.dart';
-import '../../../data/model/top_chef_model.dart';
+import '../../../data/model/chef/top_chef_model.dart';
 
 class MostLikedChefsSection extends StatelessWidget {
   const MostLikedChefsSection({

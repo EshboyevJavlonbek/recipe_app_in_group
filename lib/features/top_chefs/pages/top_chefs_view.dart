@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:recipe/core/routing/routes.dart';
 import 'package:recipe/features/common/common.dart';
-import 'package:recipe/features/top_chefs/manager/top_chefs_bloc.dart';
-import 'package:recipe/features/top_chefs/manager/top_chefs_state.dart';
+import 'package:recipe/features/top_chefs/manager/top_chefs/top_chefs_bloc.dart';
+import 'package:recipe/features/top_chefs/manager/top_chefs/top_chefs_state.dart';
 import 'package:recipe/features/top_chefs/widgets/most_liked_chefs_section.dart';
 import 'package:recipe/features/top_chefs/widgets/most_viewed_chefs_section.dart';
 import 'package:recipe/features/top_chefs/widgets/new_chefs_section.dart';
@@ -20,7 +22,7 @@ class TopChefsView extends StatelessWidget {
           actions: [
             RecipeIconButtonContainer(
               image: "assets/icons/notification.svg",
-              callback: () {},
+              callback: () => context.push(Routes.notifications),
               iconWidth: 12.w,
               iconHeight: 18.h,
             ),

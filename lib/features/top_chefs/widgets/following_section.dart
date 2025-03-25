@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Following extends StatelessWidget {
-  const Following({
+class FollowingSection extends StatelessWidget {
+  const FollowingSection({
     super.key,
   });
 
