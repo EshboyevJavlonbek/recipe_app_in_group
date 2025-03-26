@@ -103,7 +103,7 @@ class TopChefProfileView extends StatelessWidget {
                           ),
                         ],
                       ),
-                      FollowingSection(),
+                      FollowingSection(model: state.profileModel!,),
                       Column(
                         children: [
                           Text("Recipes"),

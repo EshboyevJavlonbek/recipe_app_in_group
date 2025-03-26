@@ -8,6 +8,7 @@ import 'package:recipe/features/community/manager/community_cubit.dart';
 import 'package:recipe/features/community/pages/community_view.dart';
 import 'package:recipe/features/home/manager/home_bloc.dart';
 import 'package:recipe/features/home/pages/home_view.dart';
+import 'package:recipe/features/my_recipes/pages/my_recipes_view.dart';
 import 'package:recipe/features/notifications/manager/notifications_bloc.dart';
 import 'package:recipe/features/notifications/pages/notifications_view.dart';
 import 'package:recipe/features/recipe_detail/manager/recipe_detail_view_model.dart';
@@ -21,13 +22,15 @@ import 'package:recipe/features/top_chefs/manager/top_chefs/top_chefs_bloc.dart'
 import 'package:recipe/features/top_chefs/pages/top_chefs_view.dart';
 import 'package:recipe/features/trending_recipes/manager/trending_recipes_bloc.dart';
 import 'package:recipe/features/trending_recipes/pages/trending_recipes_view.dart';
+import 'package:recipe/main.dart';
 
 import '../../features/categories/managers/categories_cubit.dart';
 import '../../features/categories/pages/categories_view.dart';
 import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.home,
+  navigatorKey: navigatorKey,
+  initialLocation: Routes.myRecipes,
   routes: [
     GoRoute(
       path: Routes.home,
@@ -40,6 +43,7 @@ final router = GoRouter(
         child: HomeView(),
       ),
     ),
+
     GoRoute(
       path: Routes.community,
       builder: (context, state) => BlocProvider(
@@ -49,6 +53,7 @@ final router = GoRouter(
         child: CommunityView(),
       ),
     ),
+
     GoRoute(
       path: Routes.categories,
       builder: (context, state) => BlocProvider(
@@ -58,6 +63,7 @@ final router = GoRouter(
         child: CategoriesView(),
       ),
     ),
+    //
     GoRoute(
       path: Routes.categoryDetail,
       builder: (context, state) => BlocProvider(
@@ -69,6 +75,7 @@ final router = GoRouter(
         child: CategoryDetailView(),
       ),
     ),
+
     GoRoute(
       path: Routes.recipeDetail,
       builder: (context, state) => ChangeNotifierProvider(
@@ -79,6 +86,7 @@ final router = GoRouter(
         child: RecipeDetailView(),
       ),
     ),
+
     GoRoute(
       path: Routes.createReview,
       builder: (context, state) => BlocProvider(
@@ -91,6 +99,7 @@ final router = GoRouter(
         child: CreateReviewView(),
       ),
     ),
+
     GoRoute(
       path: Routes.reviews,
       builder: (context, state) => BlocProvider(
@@ -102,6 +111,7 @@ final router = GoRouter(
         child: ReviewsView(),
       ),
     ),
+
     GoRoute(
       path: Routes.topChefs,
       builder: (context, state) => BlocProvider(
@@ -111,6 +121,7 @@ final router = GoRouter(
         child: TopChefsView(),
       ),
     ),
+
     GoRoute(
       path: Routes.topChefProfile,
       builder: (context, state) => BlocProvider(
@@ -121,6 +132,7 @@ final router = GoRouter(
         child: TopChefProfileView(),
       ),
     ),
+
     GoRoute(
       path: Routes.trendingRecipes,
       builder: (context, state) => BlocProvider(
@@ -130,6 +142,7 @@ final router = GoRouter(
         child: TrendingRecipesView(),
       ),
     ),
+
     GoRoute(
       path: Routes.notifications,
       builder: (context, state) => BlocProvider(
@@ -138,6 +151,11 @@ final router = GoRouter(
         ),
         child: NotificationsView(),
       ),
+    ),
+
+    GoRoute(
+      path: Routes.myRecipes,
+      builder: (context, state) => MyRecipesView(),
     ),
   ],
 );

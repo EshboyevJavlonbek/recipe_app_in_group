@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 
 import '../data/model/create_review_model.dart';
+import '../data/model/user_model.dart';
+import 'exceptions/auth_excaptions.dart';
 
 class ApiClient {
   final Dio dio = Dio(
@@ -19,6 +23,70 @@ class ApiClient {
     }
   }
 
+  Future<String> login(String login, String password) async {
+    var response = await dio.post(
+      '/auth/login',
+      data: {"login": login, "password": password},
+    );
+
+    if (response.statusCode == 200) {
+      Map<String, String> data = Map<String, String>.from(response.data);
+      return data['accessToken']!;
+    } else {
+      throw AuthException(message: "Login qilib bo'madi, xullasi nimadur noto'g'ri ketgan.");
+    }
+  }
+
+  Future<bool> signUp(UserModel model) async {
+    var response = await dio.post(
+      '/auth/register',
+      data: model.toJson(),
+    );
+    // return response.statusCode == 201 ? true : false;
+    if (response.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> uploadProfilePhoto(File file) async {
+    FormData formData = FormData.fromMap(
+      {"profilePhoto": await MultipartFile.fromFile(file.path, filename: file.path.split('/').last)},
+    );
+
+    var response = await dio.patch(
+      '/auth/upload',
+      data: formData,
+      options: Options(
+        headers: {"Content-Type": "multipart/form-data"},
+      ),
+    );
+
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<List<dynamic>> fetchMyRecipes() async {
+    final response = await dio.post(
+      '/recipes/my-recipes',
+      options: Options(
+        headers: {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJld0BnbWFpbC5jb20iLCJqdGkiOiJkMjMwNGRjMi1hZGM0LTRiN2UtYWM1YS0yMzdjZjViMTQxMmIiLCJ1c2VyaWQiOiIxIiwiZXhwIjoxODM3Njg3MzYwLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.3qU31kMTaRTuZDnHJCA0QRoMuCu7SIqige42vNY5LDM",
+        },
+      ),
+    );
+    if (response.data == 200) {
+      List<dynamic> data = response.data;
+      return data;
+    }else{
+      throw Exception("/recipes/my-recipes");
+    }
+  }
+
   Future<bool> createReview(CreateReviewModel model) async {
     final formData = FormData.fromMap(await model.toJson());
     final response = await dio.post(
@@ -33,7 +101,7 @@ class ApiClient {
     );
     if (response.statusCode == 201) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
@@ -49,7 +117,7 @@ class ApiClient {
   }
 
   Future<List<dynamic>> fetchRecipesByCategory(int categoryId) async {
-    var response = await dio.get('/recipes/list',queryParameters: {"Category":categoryId});
+    var response = await dio.get('/recipes/list', queryParameters: {"Category": categoryId});
     if (response.statusCode == 200) {
       return response.data as List<dynamic>;
     } else {
@@ -103,11 +171,11 @@ class ApiClient {
     }
   }
 
-  Future<List<dynamic>> fetchRecentlyAddedRecipes({int? limit})async {
+  Future<List<dynamic>> fetchRecentlyAddedRecipes({int? limit}) async {
     final response = await dio.get('/recipes/list?Order=date&Limit=${limit ?? ''}');
     if (response.statusCode == 200) {
       return response.data as List<dynamic>;
-    }else {
+    } else {
       throw Exception("/recipes/list?Order=date&Limit=${limit ?? ''} so'rovimiz xato ketti!");
     }
   }

@@ -68,4 +68,12 @@ class RecipeRepository {
     var rawRecipe = await client.genericGetRequest<dynamic>('/recipes/create-review/$recipeId');
     return RecipeCreateReviewModel.fromJson(rawRecipe);
   }
+
+  List<RecipeModel> myRecipes = [];
+
+  Future<List<RecipeModel>> fetchMyRecipes()async{
+    var rawRecipe = await client.fetchMyRecipes();
+    myRecipes = rawRecipe.map((recipe) => RecipeModel.fromJson(recipe)).toList();
+    return myRecipes;
+  }
 }
