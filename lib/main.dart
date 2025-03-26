@@ -7,7 +7,7 @@ import 'package:recipe/core/routing/router.dart';
 import 'package:recipe/core/utils/themes.dart';
 
 
-final navigatorKey = GlobalKey<NavigatorState>();
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,3 +33,4 @@ class RecipeApp extends StatelessWidget {
     );
   }
 }
+
