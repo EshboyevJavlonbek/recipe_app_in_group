@@ -4,9 +4,9 @@ import 'package:recipe/data/repository/chef_repository.dart';
 import 'package:recipe/data/repository/notifications_repository.dart';
 import 'package:recipe/data/repository/review_repository.dart';
 
+import '../data/repository/auth_repository.dart';
 import '../data/repository/category_repository.dart';
 import '../data/repository/recipe_repository.dart';
-import '../features/auth/data/repositories/auth_repository.dart';
 import 'client.dart';
 
 final List<SingleChildWidget> providers = [

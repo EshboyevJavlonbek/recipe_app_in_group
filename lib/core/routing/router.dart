@@ -22,15 +22,13 @@ import 'package:recipe/features/top_chefs/manager/top_chefs/top_chefs_bloc.dart'
 import 'package:recipe/features/top_chefs/pages/top_chefs_view.dart';
 import 'package:recipe/features/trending_recipes/manager/trending_recipes_bloc.dart';
 import 'package:recipe/features/trending_recipes/pages/trending_recipes_view.dart';
-import 'package:recipe/main.dart';
 
 import '../../features/categories/managers/categories_cubit.dart';
 import '../../features/categories/pages/categories_view.dart';
 import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
-  navigatorKey: navigatorKey,
-  initialLocation: Routes.myRecipes,
+  initialLocation: Routes.home,
   routes: [
     GoRoute(
       path: Routes.home,

@@ -9,7 +9,7 @@ import 'exceptions/auth_excaptions.dart';
 class ApiClient {
   final Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'http://10.10.0.59:8888/api/v1',
+      baseUrl: 'http://192.168.16.102:8888/api/v1',
       validateStatus: (status) => true,
     ),
   );
