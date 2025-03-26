@@ -2,6 +2,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe/core/routing/routes.dart';
+import 'package:recipe/features/auth/manager/login_view_model.dart';
+import 'package:recipe/features/auth/manager/sign_up_view_model.dart';
+import 'package:recipe/features/auth/pages/login_view.dart';
+import 'package:recipe/features/auth/pages/sign_up_view.dart';
 import 'package:recipe/features/category_detail/manager/category_detail_view_model.dart';
 import 'package:recipe/features/category_detail/pages/category_detail_view.dart';
 import 'package:recipe/features/community/manager/community_cubit.dart';
@@ -22,14 +26,36 @@ import 'package:recipe/features/top_chefs/manager/top_chefs/top_chefs_bloc.dart'
 import 'package:recipe/features/top_chefs/pages/top_chefs_view.dart';
 import 'package:recipe/features/trending_recipes/manager/trending_recipes_bloc.dart';
 import 'package:recipe/features/trending_recipes/pages/trending_recipes_view.dart';
+import 'package:recipe/main.dart';
 
 import '../../features/categories/managers/categories_cubit.dart';
 import '../../features/categories/pages/categories_view.dart';
 import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.home,
+  navigatorKey: navigatorKey,
+  initialLocation: Routes.login,
   routes: [
+    GoRoute(
+      path: Routes.login,
+      builder: (context, state) => ChangeNotifierProvider(
+        create: (context) => LoginViewModel(
+          repo: context.read(),
+        ),
+        child: LoginView(),
+      ),
+    ),
+
+    GoRoute(
+      path: Routes.signUp,
+      builder: (context, state) => ChangeNotifierProvider(
+        create: (context) => SignUpViewModel(
+          authRepo: context.read(),
+        ),
+        child: SignUpView(),
+      ),
+    ),
+
     GoRoute(
       path: Routes.home,
       builder: (context, state) => BlocProvider(

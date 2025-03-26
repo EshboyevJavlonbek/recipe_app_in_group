@@ -14,6 +14,7 @@ class ApiClient {
     ),
   );
 
+
   Future<T> genericGetRequest<T>(String path, {Map<String, dynamic>? queryParams}) async {
     var response = await dio.get(path, queryParameters: queryParams);
     if (response.statusCode == 200) {

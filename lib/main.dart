@@ -6,7 +6,7 @@ import 'package:recipe/core/dependencies.dart' show providers;
 import 'package:recipe/core/routing/router.dart';
 import 'package:recipe/core/utils/themes.dart';
 
-
+final navigatorKey = GlobalKey<NavigatorState>();
 
 
 void main() {
