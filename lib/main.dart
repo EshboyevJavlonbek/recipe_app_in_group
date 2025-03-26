@@ -6,6 +6,9 @@ import 'package:recipe/core/dependencies.dart' show providers;
 import 'package:recipe/core/routing/router.dart';
 import 'package:recipe/core/utils/themes.dart';
 
+
+
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   // App full-screen bo'lib run bo'lishi uchun!
@@ -30,3 +33,4 @@ class RecipeApp extends StatelessWidget {
     );
   }
 }
+

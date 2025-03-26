@@ -6,6 +6,7 @@ import 'package:recipe/features/category_detail/manager/category_detail_view_mod
 import 'package:recipe/features/category_detail/pages/category_detail_view.dart';
 import 'package:recipe/features/community/manager/community_cubit.dart';
 import 'package:recipe/features/community/pages/community_view.dart';
+import 'package:recipe/features/following/presentation/pages/following_view.dart';
 import 'package:recipe/features/home/manager/home_bloc.dart';
 import 'package:recipe/features/home/pages/home_view.dart';
 import 'package:recipe/features/notifications/manager/notifications_bloc.dart';
@@ -22,13 +23,25 @@ import 'package:recipe/features/top_chefs/pages/top_chefs_view.dart';
 import 'package:recipe/features/trending_recipes/manager/trending_recipes_bloc.dart';
 import 'package:recipe/features/trending_recipes/pages/trending_recipes_view.dart';
 
+import '../../features/auth/presentation/pages/complete_your_profile_view.dart';
+import '../../features/auth/presentation/pages/login_view.dart';
+import '../../features/auth/presentation/pages/sign_up_view.dart';
 import '../../features/categories/managers/categories_cubit.dart';
 import '../../features/categories/pages/categories_view.dart';
 import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.home,
+  initialLocation:"/login"
+       ,
+  // initialLocation: Routes.home,
   routes: [
+    GoRoute(path: '/login', builder: (context, state) => LoginView()),
+    GoRoute(path: '/signUp', builder: (context, state) => SignUpView()),
+    GoRoute(
+      path: '/completeProfile',
+      builder: (context, state) => CompleteYourProfileView(),
+    ),
+    GoRoute(path: "/folliwing",builder: (context,state)=>FollowingView()),
     GoRoute(
       path: Routes.home,
       builder: (context, state) => BlocProvider(

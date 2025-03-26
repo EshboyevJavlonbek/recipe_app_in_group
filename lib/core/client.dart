@@ -1,11 +1,14 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 
 import '../data/model/create_review_model.dart';
+import '../features/auth/data/models/user_model.dart';
 
 class ApiClient {
   final Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'http://10.10.0.59:8888/api/v1',
+      baseUrl: 'http://10.10.0.122:8888/api/v1',
       validateStatus: (status) => true,
     ),
   );
@@ -18,6 +21,46 @@ class ApiClient {
       throw DioException(requestOptions: response.requestOptions, response: response);
     }
   }
+  Future<String> login(String login, String password) async {
+    var response = await dio.post(
+      '/auth/login',
+      data: {"login": login, "password": password},
+    );
+
+    if (response.statusCode == 200) {
+      return response.data['accessToken'] ??
+          (throw Exception("Token topilmadi!"));
+    } else {
+      throw Exception("Login qilib bo'lmadi!");
+    }
+  }
+
+  Future<bool> uploadProfilePhoto(File file) async {
+    FormData formData = FormData.fromMap({
+      "profilePhoto": await MultipartFile.fromFile(
+        file.path,
+        filename: file.path.split('/').last,
+      )
+    });
+
+    var response = await dio.patch(
+      '/auth/upload',
+      data: formData,
+      options: Options(headers: {"Content-Type": "multipart/form-data"}),
+    );
+
+    return response.statusCode == 200;
+  }
+
+  Future<bool> signUp(UserModel model) async {
+    var response = await dio.post(
+      '/auth/register',
+      data: model.toJson(),
+    );
+
+    return response.statusCode == 201;
+  }
+
 
   Future<bool> createReview(CreateReviewModel model) async {
     final formData = FormData.fromMap(await model.toJson());
