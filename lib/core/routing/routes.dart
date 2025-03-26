@@ -1,5 +1,7 @@
 
 class Routes {
+  static const String login ='/login';
+  static const String signUp = '/sign-up';
   static const String home = '/home';
   static const String categories = '/categories';
   static const String categoryDetail = '/category-detail/:categoryId'; //categoryId pathParam bilan ham ko'rsatish
