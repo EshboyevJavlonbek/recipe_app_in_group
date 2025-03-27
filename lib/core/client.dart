@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:recipe/core/interceptor.dart';
 
 import '../data/model/create_review_model.dart';
 import '../data/model/user_model.dart';
@@ -12,7 +13,7 @@ class ApiClient {
       baseUrl: 'http://10.10.3.254:8888/api/v1',
       validateStatus: (status) => true,
     ),
-  );
+  )..interceptors.add(AuthInterceptor());
 
 
   Future<T> genericGetRequest<T>(String path, {Map<String, dynamic>? queryParams}) async {
@@ -72,19 +73,14 @@ class ApiClient {
   }
 
   Future<List<dynamic>> fetchMyRecipes() async {
-    final response = await dio.post(
+    final response = await dio.get(
       '/recipes/my-recipes',
-      options: Options(
-        headers: {
-          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJld0BnbWFpbC5jb20iLCJqdGkiOiJkMjMwNGRjMi1hZGM0LTRiN2UtYWM1YS0yMzdjZjViMTQxMmIiLCJ1c2VyaWQiOiIxIiwiZXhwIjoxODM3Njg3MzYwLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.3qU31kMTaRTuZDnHJCA0QRoMuCu7SIqige42vNY5LDM",
-        },
-      ),
     );
-    if (response.data == 200) {
+    if (response.statusCode == 200) {
       List<dynamic> data = response.data;
       return data;
     }else{
-      throw Exception("/recipes/my-recipes");
+      throw Exception("/recipes/my-recipes da xatolik");
     }
   }
 

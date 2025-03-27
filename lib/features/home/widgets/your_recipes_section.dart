@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:recipe/core/routing/routes.dart';
 import 'package:recipe/features/home/widgets/your_recipe_item.dart';
 
 import '../../../data/model/recipe/recipe_model.dart';
@@ -16,33 +18,36 @@ class YourRecipesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 255.h,
-      padding: EdgeInsets.symmetric(horizontal: 36.w, vertical: 14.h),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        spacing: 10,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
+    return GestureDetector(
+      onTap: () => context.push(Routes.myRecipes),
+      child: Container(
+        height: 255.h,
+        padding: EdgeInsets.symmetric(horizontal: 36.w, vertical: 14.h),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          spacing: 10,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              for (var recipe in recipes)
-                YourRecipeItem(recipe: recipe),
-            ],
-          ),
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                for (var recipe in recipes)
+                  YourRecipeItem(recipe: recipe),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
