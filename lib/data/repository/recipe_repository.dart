@@ -4,6 +4,7 @@ import 'package:recipe/data/model/recipe/reviews_recipe_model.dart';
 import 'package:recipe/data/model/recipe/recipe_model.dart';
 import 'package:recipe/data/model/recipe/recipe_detail_model.dart';
 
+import '../model/my_recipe.dart';
 import '../model/recipe/community_model.dart';
 
 class RecipeRepository {
@@ -46,19 +47,19 @@ class RecipeRepository {
     return rawRecipe.map((recipe) => RecipeModel.fromJson(recipe)).toList();
   }
 
-  Future<List<CommunityRecipeModel>> fetchCommunityRecipes({required String orderBy, required bool descending}) async{
+  Future<List<CommunityRecipeModel>> fetchCommunityRecipes({required String orderBy, required bool descending}) async {
     final rawRecipes = await client.fetchCommunityRecipes(orderBy: orderBy, descending: descending);
     communityRecipes = rawRecipes.map((recipe) => CommunityRecipeModel.fromJson(recipe)).toList();
     return communityRecipes;
   }
 
-  Future<List<RecipeModel>> fetchRecentlyAddedRecipes({int? limit}) async{
+  Future<List<RecipeModel>> fetchRecentlyAddedRecipes({int? limit}) async {
     final rawRecipes = await client.fetchRecentlyAddedRecipes(limit: limit);
     recentlyAddedRecipes = rawRecipes.map((recipe) => RecipeModel.fromJson(recipe)).toList();
     return recentlyAddedRecipes;
   }
 
-  Future<ReviewsRecipeModel> fetchRecipeForReviews(int recipeId) async{
+  Future<ReviewsRecipeModel> fetchRecipeForReviews(int recipeId) async {
     var rawRecipe = await client.fetchRecipeForReviews(recipeId);
     reviewsRecipe = ReviewsRecipeModel.fromJson(rawRecipe);
     return reviewsRecipe!;
@@ -69,11 +70,17 @@ class RecipeRepository {
     return RecipeCreateReviewModel.fromJson(rawRecipe);
   }
 
+<<<<<<< HEAD
   List<RecipeModel> myRecipes = [];
 
   Future<List<RecipeModel>> fetchMyRecipes()async{
     var rawRecipe = await client.fetchMyRecipes();
     myRecipes = rawRecipe.map((recipe) => RecipeModel.fromJson(recipe)).toList();
     return myRecipes;
+=======
+  Future<MyRecipeModel> fetchMyRecipe(int? categoryId) async {
+    var rawMyRecipe = await client.genericGetRequest<List<dynamic>>('/recipes/my-recipes/$categoryId');
+    return MyRecipeModel.fromJson(rawMyRecipe as Map<String, dynamic>);
+>>>>>>> 6851e1d (Mahalliy o‘zgarishlar saqlandi)
   }
 }

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:profile/core/core.dart';
-import 'package:profile/core/presentation/widgets/recipe_elevated_button.dart';
-import 'package:profile/features/auth/presentation/manager/complete_profile_view_model.dart';
-import 'package:profile/features/auth/presentation/pages/complete_profile_description.dart';
-import 'package:profile/features/auth/presentation/pages/recipe_bio_field.dart';
-import 'package:profile/features/auth/presentation/pages/recipe_gender_field.dart';
-import 'package:profile/features/auth/presentation/widgets/profile_photo_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../common/widgets/recipe_eleveted_button.dart';
+import '../manager/complete_profile_view_model.dart';
+import '../widgets/complete_profile_description.dart';
+import '../widgets/profile_photo_picker.dart';
 import '../widgets/recipe_bio_field.dart';
+import '../widgets/recipe_gender_field.dart' show RecipeGenderField;
 
 class CompleteProfileView extends StatelessWidget {
   const CompleteProfileView({super.key});
