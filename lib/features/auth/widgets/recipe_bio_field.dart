@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:profile/core/core.dart';
-import 'package:profile/features/auth/presentation/manager/complete_profile_view_model.dart';
 import 'package:provider/provider.dart';
+
+import '../../../core/utils/colors.dart';
+import '../manager/complete_profile_view_model.dart';
 
 class RecipeBioField extends StatelessWidget {
   const RecipeBioField({
