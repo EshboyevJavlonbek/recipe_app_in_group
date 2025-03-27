@@ -7,7 +7,7 @@ import '../manager/complete_profile_view_model.dart';
 import '../widgets/complete_profile_description.dart';
 import '../widgets/profile_photo_picker.dart';
 import '../widgets/recipe_bio_field.dart';
-import '../widgets/recipe_gender_field.dart';
+
 
 class CompleteProfileView extends StatelessWidget {
   const CompleteProfileView({super.key});

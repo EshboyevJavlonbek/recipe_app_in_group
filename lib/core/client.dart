@@ -189,4 +189,5 @@ class ApiClient {
       throw Exception("/recipes/reviews/detail/$recipeId' so'rovimizda xatolik!");
     }
   }
+
 }
