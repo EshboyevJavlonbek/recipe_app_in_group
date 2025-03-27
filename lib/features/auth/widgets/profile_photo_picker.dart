@@ -1,12 +1,9 @@
-
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:profile/core/core.dart';
-import 'package:profile/features/auth/presentation/manager/complete_profile_view_model.dart';
 import 'package:provider/provider.dart';
+
+import '../../../core/utils/colors.dart';
+import '../manager/complete_profile_view_model.dart';
 
 class ProfilePhotoPicker extends StatelessWidget {
   const ProfilePhotoPicker({super.key});
