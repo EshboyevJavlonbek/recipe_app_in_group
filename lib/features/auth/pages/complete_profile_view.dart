@@ -7,7 +7,7 @@ import '../manager/complete_profile_view_model.dart';
 import '../widgets/complete_profile_description.dart';
 import '../widgets/profile_photo_picker.dart';
 import '../widgets/recipe_bio_field.dart';
-import '../widgets/recipe_gender_field.dart' show RecipeGenderField;
+
 
 class CompleteProfileView extends StatelessWidget {
   const CompleteProfileView({super.key});
@@ -22,7 +22,7 @@ class CompleteProfileView extends StatelessWidget {
           title: Text("Profile"),
         ),
         body: ListView(
-          padding: EdgeInsets.symmetric(horizontal: AppSizes.padding36, vertical: 48),
+          padding: EdgeInsets.symmetric(horizontal: 36, vertical: 48),
           children: [
             CompleteProfileDescription(),
             SizedBox(height: 44),
