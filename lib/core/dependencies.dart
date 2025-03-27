@@ -28,4 +28,5 @@ final List<SingleChildWidget> providers = [
   Provider(
     create: (context) => NotificationsRepository(client: context.read()),
   ),
+  Provider(create: (context) => AuthRepository(client: context.read()),)
 ];

@@ -12,6 +12,7 @@ import 'package:recipe/features/community/manager/community_cubit.dart';
 import 'package:recipe/features/community/pages/community_view.dart';
 import 'package:recipe/features/home/manager/home_bloc.dart';
 import 'package:recipe/features/home/pages/home_view.dart';
+import 'package:recipe/features/my_recipes/manager/my_recipes_bloc.dart';
 import 'package:recipe/features/my_recipes/pages/my_recipes_view.dart';
 import 'package:recipe/features/notifications/manager/notifications_bloc.dart';
 import 'package:recipe/features/notifications/pages/notifications_view.dart';
@@ -181,7 +182,12 @@ final router = GoRouter(
 
     GoRoute(
       path: Routes.myRecipes,
-      builder: (context, state) => MyRecipesView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => MyRecipesBloc(
+          recipeRepo: context.read(),
+        ),
+        child: MyRecipesView(),
+      ),
     ),
   ],
 );
