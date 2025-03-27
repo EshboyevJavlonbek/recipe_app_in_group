@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../../core/utils/colors.dart';
 import '../manager/complete_profile_view_model.dart';
 
+
 class RecipeBioField extends StatelessWidget {
   const RecipeBioField({
     super.key,

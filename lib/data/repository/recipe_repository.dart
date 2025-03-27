@@ -70,17 +70,11 @@ class RecipeRepository {
     return RecipeCreateReviewModel.fromJson(rawRecipe);
   }
 
-<<<<<<< HEAD
   List<RecipeModel> myRecipes = [];
 
-  Future<List<RecipeModel>> fetchMyRecipes()async{
+  Future<List<RecipeModel>> fetchMyRecipes() async {
     var rawRecipe = await client.fetchMyRecipes();
     myRecipes = rawRecipe.map((recipe) => RecipeModel.fromJson(recipe)).toList();
     return myRecipes;
-=======
-  Future<MyRecipeModel> fetchMyRecipe(int? categoryId) async {
-    var rawMyRecipe = await client.genericGetRequest<List<dynamic>>('/recipes/my-recipes/$categoryId');
-    return MyRecipeModel.fromJson(rawMyRecipe as Map<String, dynamic>);
->>>>>>> 6851e1d (Mahalliy o‘zgarishlar saqlandi)
   }
 }

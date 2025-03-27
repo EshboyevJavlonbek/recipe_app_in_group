@@ -9,6 +9,7 @@ import '../widgets/profile_photo_picker.dart';
 import '../widgets/recipe_bio_field.dart';
 import '../widgets/recipe_gender_field.dart';
 
+
 class CompleteProfileView extends StatelessWidget {
   const CompleteProfileView({super.key});
 
