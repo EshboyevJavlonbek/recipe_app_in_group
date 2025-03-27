@@ -14,8 +14,6 @@ final List<SingleChildWidget> providers = [
     create: (context) => ApiClient(),
   ),
   Provider(
-      create: (context) => AuthRepository(client: context.read())),
-  Provider(
     create: (context) => CategoryRepository(client: context.read()),
   ),
   Provider(
