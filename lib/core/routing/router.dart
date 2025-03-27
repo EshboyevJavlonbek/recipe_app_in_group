@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -58,16 +59,33 @@ final router = GoRouter(
       ),
     ),
 
-    GoRoute(path: "/folliwing", builder: (context, state) => FollowingView()),
+    GoRoute(
+      path: "/folliwing",
+      builder: (context, state) => FollowingView(),
+    ),
+
     GoRoute(
       path: Routes.home,
-      builder: (context, state) => BlocProvider(
-        create: (context) => HomeBloc(
-          catRepo: context.read(),
-          recipeRepo: context.read(),
-          chefRepo: context.read(),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: Duration(seconds: 1),
+        child: BlocProvider(
+          create: (context) => HomeBloc(
+            catRepo: context.read(),
+            recipeRepo: context.read(),
+            chefRepo: context.read(),
+          ),
+          child: HomeView(),
         ),
-        child: HomeView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          final curve = CurvedAnimation(parent: animation, curve: Curves.bounceIn);
+          return SlideTransition(
+            position: Tween<Offset>(
+              begin: Offset(0, 1),
+              end: Offset(0, 0),
+            ).animate(curve),
+            child: child,
+          );
+        },
       ),
     ),
 
