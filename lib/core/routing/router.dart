@@ -32,12 +32,12 @@ import 'package:recipe/main.dart';
 
 import '../../features/categories/managers/categories_cubit.dart';
 import '../../features/categories/pages/categories_view.dart';
-import '../../features/following/presentation/pages/following_view.dart';
+import '../../features/following/pages/following_view.dart';
 import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.login,
+  initialLocation: Routes.following,
   routes: [
     GoRoute(
       path: Routes.login,
@@ -60,7 +60,7 @@ final router = GoRouter(
     ),
 
     GoRoute(
-      path: "/folliwing",
+      path: Routes.following,
       builder: (context, state) => FollowingView(),
     ),
 

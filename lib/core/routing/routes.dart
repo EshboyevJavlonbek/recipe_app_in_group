@@ -14,6 +14,7 @@ class Routes {
   static const String trendingRecipes ='/trending-recipes';
   static const String notifications = '/notification';
   static const String myRecipes = '/my-recipes';
+  static const String following = '/following';
 
   static String getRecipeDetail(int recipeId) => '/recipe-detail/$recipeId';
 
