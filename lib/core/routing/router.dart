@@ -108,7 +108,7 @@ final router = GoRouter(
         child: CategoriesView(),
       ),
     ),
-    //
+
     GoRoute(
       path: Routes.categoryDetail,
       builder: (context, state) => BlocProvider(
