@@ -37,7 +37,10 @@ class FollowingBody extends StatelessWidget {
             ),
           ),
           FollowingItem(),
+<<<<<<< HEAD
 
+=======
+>>>>>>> 14fc21e5c7436c2508f784cd1a38f6c4d583b3fd
         ],
       ),
     );
