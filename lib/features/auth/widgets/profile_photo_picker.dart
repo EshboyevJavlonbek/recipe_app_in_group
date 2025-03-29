@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import '../../../core/utils/colors.dart';
+import '../manager/complete_profile_view_model.dart';
 
 import '../../../core/utils/colors.dart';
 import '../manager/complete_profile_view_model.dart';
@@ -12,7 +13,7 @@ class ProfilePhotoPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var profilePhoto = context.select((CompleteProfileViewModel vm) => vm.profilePhoto);
-
+    
     return Center(
       child: SizedBox(
         width: 120,
