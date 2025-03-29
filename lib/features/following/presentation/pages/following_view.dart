@@ -3,10 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/common/common.dart';
 import 'package:recipe/features/common/widgets/recipe_eleveted_button.dart';
-
 class FollowingView extends StatelessWidget {
   const FollowingView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
