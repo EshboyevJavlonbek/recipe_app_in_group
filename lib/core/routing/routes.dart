@@ -1,4 +1,3 @@
-
 class Routes {
   static const String login ='/login';
   static const String signUp = '/sign-up';
@@ -14,7 +13,12 @@ class Routes {
   static const String trendingRecipes ='/trending-recipes';
   static const String notifications = '/notification';
   static const String myRecipes = '/my-recipes';
+<<<<<<< HEAD
+  static const String following = '/my-following';
+  static const String recipeCreate = '/recipes/create';
+=======
   static const String following = '/following';
+>>>>>>> 14fc21e5c7436c2508f784cd1a38f6c4d583b3fd
 
   static String getRecipeDetail(int recipeId) => '/recipe-detail/$recipeId';
 
