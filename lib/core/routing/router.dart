@@ -37,7 +37,7 @@ import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.login,
+  initialLocation: Routes.following,
   routes: [
     GoRoute(
       path: Routes.login,
@@ -60,7 +60,7 @@ final router = GoRouter(
     ),
 
     GoRoute(
-      path: "/folliwing",
+      path: Routes.following,
       builder: (context, state) => FollowingView(),
     ),
 

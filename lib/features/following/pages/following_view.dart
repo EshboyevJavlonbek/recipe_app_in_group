@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/core/utils/colors.dart';
 import 'package:recipe/features/common/common.dart';
-import 'package:recipe/features/following/pages/following_body.dart';
+import 'package:recipe/features/following/widgets/following_body.dart';
 import 'package:recipe/features/following/widgets/follower_body.dart';
 
 class FollowingView extends StatelessWidget {
