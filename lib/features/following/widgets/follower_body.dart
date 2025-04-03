@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/core/utils/colors.dart';
+import 'package:recipe/data/model/recipe/user_model_in_recipe.dart';
 import 'package:recipe/features/following/widgets/follower_item.dart';
 
 class FollowerBody extends StatelessWidget {
   const FollowerBody({
     super.key,
+    required this.model,
   });
+
+  final List<UserModelInRecipe> model;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,18 @@ class FollowerBody extends StatelessWidget {
               ),
             ),
           ),
-          FollowerItem(),
+          Expanded(
+            child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: model.length,
+              itemBuilder: (context, index) => FollowerItem(
+                image: model[index].image,
+                username: model[index].username,
+                firstName: model[index].firstName,
+                lastName: model[index].lastName,
+              ),
+            ),
+          ),
         ],
       ),
     );

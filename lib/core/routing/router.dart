@@ -11,6 +11,7 @@ import 'package:recipe/features/category_detail/manager/category_detail_view_mod
 import 'package:recipe/features/category_detail/pages/category_detail_view.dart';
 import 'package:recipe/features/community/manager/community_cubit.dart';
 import 'package:recipe/features/community/pages/community_view.dart';
+import 'package:recipe/features/following/manager/following_bloc.dart';
 import 'package:recipe/features/home/manager/home_bloc.dart';
 import 'package:recipe/features/home/pages/home_view.dart';
 import 'package:recipe/features/my_recipes/manager/my_recipes_bloc.dart';
@@ -40,11 +41,11 @@ final router = GoRouter(
   navigatorKey: navigatorKey,
   initialLocation: Routes.home,
   routes: [
-  GoRoute(
-  path: Routes.login,
-  builder: (context, state) => ChangeNotifierProvider(
-    create: (context) => LoginViewModel(
-      repo: context.read(),
+    GoRoute(
+      path: Routes.login,
+      builder: (context, state) => ChangeNotifierProvider(
+        create: (context) => LoginViewModel(
+          repo: context.read(),
         ),
         child: LoginView(),
       ),
@@ -64,7 +65,12 @@ final router = GoRouter(
     ),
     GoRoute(
       path: Routes.following,
-      builder: (context, state) => FollowingView(),
+      builder: (context, state) => BlocProvider(
+          create: (context) => FollowingBloc(
+                followingRepo: context.read(),
+                chefId: int.parse(state.pathParameters['chefId']!),
+              ),
+          child: FollowingView()),
     ),
     GoRoute(
       path: Routes.home,

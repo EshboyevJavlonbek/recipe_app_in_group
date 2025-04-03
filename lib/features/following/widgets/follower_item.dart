@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe/core/utils/colors.dart';
-import 'package:recipe/features/common/common.dart';
 import 'package:recipe/features/common/widgets/recipe_eleveted_button.dart';
 import 'package:recipe/features/common/widgets/recipe_text_button_container.dart';
 
 class FollowerItem extends StatelessWidget {
   const FollowerItem({
     super.key,
+    required this.image,
+    required this.username,
+    required this.firstName,
+    required this.lastName,
   });
+
+  final String image, username, firstName, lastName;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +22,8 @@ class FollowerItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(33),
-          child: Image.asset(
-            "assets/images/breakfast.png",
+          child: Image.network(
+            image,
             width: 61,
             height: 63,
           ),
@@ -33,7 +38,7 @@ class FollowerItem extends StatelessWidget {
               Text(
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                "@sweet.sarah",
+                "@$username",
                 style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 12,
@@ -44,7 +49,7 @@ class FollowerItem extends StatelessWidget {
               Text(
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                "Sarah Johnson",
+                "$firstName $lastName",
                 style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 12,
@@ -67,7 +72,7 @@ class FollowerItem extends StatelessWidget {
               fontWeight: FontWeight.w300,
               textColor: AppColors.redPinkMain,
               containerColor: Colors.transparent,
-              callback: (){},
+              callback: () {},
             ),
             RecipeElevatedButton(
               size: Size(69.w, 21.h),
