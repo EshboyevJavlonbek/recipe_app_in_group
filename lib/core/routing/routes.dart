@@ -13,7 +13,7 @@ class Routes {
   static const String trendingRecipes ='/trending-recipes';
   static const String notifications = '/notification';
   static const String myRecipes = '/my-recipes';
-  static const String following = '/my-following';
+  static const String following = '/my-following/:chefId';
   static const String recipeCreate = '/recipes/create';
 
   static String getRecipeDetail(int recipeId) => '/recipe-detail/$recipeId';
@@ -25,4 +25,6 @@ class Routes {
   static String getCreateReview(int recipeId) => '/create-review/$recipeId';
 
   static String getChefProfile(int chefId) => '/top-chef-profile/$chefId';
+
+  static String getChefFollowing(int chefId) => '/my-following/$chefId';
 }

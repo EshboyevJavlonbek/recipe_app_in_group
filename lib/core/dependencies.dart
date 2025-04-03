@@ -1,6 +1,7 @@
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:recipe/data/repository/chef_repository.dart';
+import 'package:recipe/data/repository/following_repository.dart';
 import 'package:recipe/data/repository/notifications_repository.dart';
 import 'package:recipe/data/repository/review_repository.dart';
 
@@ -28,5 +29,10 @@ final List<SingleChildWidget> providers = [
   Provider(
     create: (context) => NotificationsRepository(client: context.read()),
   ),
-  Provider(create: (context) => AuthRepository(client: context.read()),)
+  Provider(
+    create: (context) => AuthRepository(client: context.read()),
+  ),
+  Provider(
+    create: (context) => FollowingRepository(client: context.read()),
+  ),
 ];

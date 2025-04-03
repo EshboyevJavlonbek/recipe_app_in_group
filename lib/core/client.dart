@@ -5,7 +5,7 @@ import 'package:recipe/core/interceptor.dart';
 
 import '../data/model/create_review_model.dart';
 import '../data/model/user_model.dart';
-import 'exceptions/auth_excaptions.dart';
+import 'exceptions/auth_exceptions.dart';
 
 class ApiClient {
   final Dio dio = Dio(
@@ -20,6 +20,15 @@ class ApiClient {
     if (response.statusCode == 200) {
       return response.data as T;
     } else {
+      throw DioException(requestOptions: response.requestOptions, response: response);
+    }
+  }
+  
+  Future<T> genericPostRequest<T>(String path, {Map<String, dynamic>? queryParams}) async{
+    var response = await dio.post(path, queryParameters: queryParams);
+    if (response.statusCode == 200) {
+      return response.data as T;
+    }else{
       throw DioException(requestOptions: response.requestOptions, response: response);
     }
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:recipe/core/routing/routes.dart';
 import 'package:recipe/data/model/chef/top_chef_profile_model.dart';
 
 class FollowingSection extends StatelessWidget {
@@ -39,7 +41,7 @@ class FollowingSection extends StatelessWidget {
           ItemsFollowing(
             title: "Following",
             num: model.followingCount,
-            callback: () {},
+            callback: () => context.push(Routes.getChefFollowing(model.id)),
           ),
           Container(
             width: 1.w,
@@ -49,7 +51,7 @@ class FollowingSection extends StatelessWidget {
           ItemsFollowing(
             title: "Followers",
             num: model.followerCount,
-            callback: () {},
+            callback: () => context.push(Routes.getChefFollowing(model.id)),
           ),
         ],
       ),
@@ -72,7 +74,7 @@ class ItemsFollowing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: callback,
       child: SizedBox(
         child: Column(
           spacing: 1,
@@ -81,7 +83,7 @@ class ItemsFollowing extends StatelessWidget {
               num.toString(),
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 15,
+                fontSize: 15.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -89,7 +91,7 @@ class ItemsFollowing extends StatelessWidget {
               title,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 12,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),
