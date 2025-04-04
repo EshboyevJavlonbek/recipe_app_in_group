@@ -40,7 +40,7 @@ import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.login,
+  initialLocation: Routes.home,
   routes: [
     GoRoute(
       path: Routes.login,
