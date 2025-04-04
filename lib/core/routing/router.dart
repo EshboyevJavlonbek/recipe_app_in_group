@@ -18,7 +18,6 @@ import 'package:recipe/features/my_recipes/manager/my_recipes_bloc.dart';
 import 'package:recipe/features/my_recipes/pages/my_recipes_view.dart';
 import 'package:recipe/features/notifications/manager/notifications_bloc.dart';
 import 'package:recipe/features/notifications/pages/notifications_view.dart';
-import 'package:recipe/features/recipe_create_agent/pages/recipe_create.dart';
 import 'package:recipe/features/recipe_detail/manager/recipe_detail_view_model.dart';
 import 'package:recipe/features/recipe_detail/pages/recipe_detail_view.dart';
 import 'package:recipe/features/reviews/manager/create_review/create_review_bloc.dart';
@@ -35,11 +34,13 @@ import 'package:recipe/main.dart';
 import '../../features/categories/managers/categories_cubit.dart';
 import '../../features/categories/pages/categories_view.dart';
 import '../../features/following/pages/following_view.dart';
+import '../../features/recipe_create/manager/recipe_create_bloc.dart';
+import '../../features/recipe_create/pages/recipe_create_view.dart';
 import '../../features/top_chefs/pages/top_chef_profile_view.dart';
 
 final router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.home,
+  initialLocation: Routes.login,
   routes: [
     GoRoute(
       path: Routes.login,
@@ -58,10 +59,6 @@ final router = GoRouter(
         ),
         child: SignUpView(),
       ),
-    ),
-    GoRoute(
-      path: Routes.recipeCreate,
-      builder: (context, state) => RecipeCreate(),
     ),
     GoRoute(
       path: Routes.following,
@@ -301,5 +298,12 @@ final router = GoRouter(
         ),
       ),
     ),
+    GoRoute(
+      path: Routes.recipeCreate,
+      builder: (context, state) => BlocProvider(
+        create: (context) => RecipeCreateBloc(),
+        child: RecipeCreateView(),
+      ),
+    )
   ],
 );
